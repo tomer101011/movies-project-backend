@@ -4,7 +4,7 @@ const connection = require("./db.js");
 const Movie = {};
 
 Movie.getAllMovies = (res) => {
-    const sql='SELECT movieId, title, poster FROM Movies';
+    const sql='SELECT movieId, title, poster FROM Movies ORDER BY released desc';
     connection.query(sql, (err, result) => {
         if (err) {
             console.log("error: ", err);
