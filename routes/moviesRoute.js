@@ -4,7 +4,7 @@ const Movie = require('../models/movies.js');
 const router = express.Router();
 
 //get home page
-router.get("/", (req, res) => {
+router.get("/recent", (req, res) => {
     Movie.getAllMovies(res);
 });
 
