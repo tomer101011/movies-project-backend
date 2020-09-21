@@ -4,6 +4,7 @@ const cors = require("cors");
 //all backend routes
 const indexRouter = require('./routes/index.js');
 const moviesRouter = require('./routes/moviesRoute.js');
+const postersRouter = require('./routes/postersRoute.js');
 const usersRouter = require('./routes/usersRoute.js');
 
 const port = 9000;
@@ -15,6 +16,7 @@ app.use(cors());
 //all backend routes
 app.use('/', indexRouter);
 app.use('/movies', moviesRouter);
+app.use('/posters', postersRouter);
 app.use('/users', usersRouter);
 
 

@@ -7,7 +7,7 @@ const connection = mysql.createConnection({
 });
 
 connection.connect(error => {
-    if (error) { console.log('No Database created'); return; }
+    if (error) throw error;
     console.log("Successfully connected");
 
     createDatabase();
@@ -17,14 +17,9 @@ connection.connect(error => {
 const createDatabase = () => {
 
     connection.query("CREATE DATABASE movieMojoDB", (error, result) => {
-        if (error) {
-            console.log("Database already exists");
-            process.exit();
-        }
-        else {
-            console.log("Database created");
-            process.exit()
-        }
+        if (error) throw error;
+
+        else console.log("Database created");
     });
-    
+
 }

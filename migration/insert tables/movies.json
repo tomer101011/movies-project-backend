@@ -1,42 +1,132 @@
 [
   {
     "movieId": "1",
-    "name": "Space Betwen Us",
-    "picture": "https://www.focusoncode.com/uploads/demo/movies-trailer/images/9.jpg"
+    "title": "Star Wars: The Rise of Skywalker",
+	"released": "20 Dec 2019",
+	"runtime":"141 min",
+	"genre":"Action, Adventure, Fantasy, Sci-Fi",
+	"director": "J.J. Abrams",
+    "actors": "Carrie Fisher, Mark Hamill, Adam Driver, Daisy Ridley",
+	"plot":"The surviving members of the resistance face the First Order once again, and the legendary conflict between the Jedi and the Sith reaches its peak bringing the Skywalker saga to its end.",
+	"poster":"https://m.media-amazon.com/images/M/MV5BMDljNTQ5ODItZmQwMy00M2ExLTljOTQtZTVjNGE2NTg0NGIxXkEyXkFqcGdeQXVyODkzNTgxMDg@._V1_SX300.jpg",
+	"trailer":"https://www.youtube.com/embed/8Qn_spdM5Zg",
+	"rating":"53"
   },
   {
     "movieId": "2",
-    "name": "John Wick",
-    "picture": "https://www.focusoncode.com/uploads/demo/movies-trailer/images/2.jpg"
+    "title": "The Space Between Us",
+	"released": "03 Feb 2017",
+	"runtime":"120 min",
+	"genre":"Drama, Romance, Sci-Fi",
+	"director": "Peter Chelsom",
+    "actors": "Gary Oldman, Janet Montgomery, Trey Tucker, Scott Takeda",
+	"plot":"The first human born on Mars travels to Earth for the first time, experiencing the wonders of the planet through fresh eyes. He embarks on an adventure with a street-smart girl to discover how he came to be.",
+	"poster":"https://m.media-amazon.com/images/M/MV5BNjYzODU1OTkwN15BMl5BanBnXkFtZTgwMDA3MTMwMDI@._V1_SX300.jpg",
+	"trailer":"https://www.youtube.com/embed/x73-573aWfs",
+	"rating":"33"
   },
   {
     "movieId": "3",
-    "name": "Spider-Man Homecoming",
-    "picture": "https://www.focusoncode.com/uploads/demo/movies-trailer/images/3.jpg"
+    "title": "Blade Runner 2049",
+	"released": "06 Oct 2017",
+	"runtime":"164 min",
+	"genre":"Action, Drama, Mystery, Sci-Fi, Thriller",
+	"director": "Denis Villeneuve",
+    "actors": "Ryan Gosling, Dave Bautista, Robin Wright, Mark Arnold",
+	"plot":"Young Blade Runner Ks discovery of a long-buried secret leads him to track down former Blade Runner Rick Deckard, who is been missing for thirty years.",
+	"poster":"https://m.media-amazon.com/images/M/MV5BNzA1Njg4NzYxOV5BMl5BanBnXkFtZTgwODk5NjU3MzI@._V1_SX300.jpg",
+	"trailer":"https://www.youtube.com/embed/gCcx85zbxz4",
+	"rating":"81"
   },
   {
     "movieId": "4",
-    "name": "Beauty and the Beast",
-    "picture": "https://www.focusoncode.com/uploads/demo/movies-trailer/images/4.jpg"
+    "title": "Spider-Man: Far from Home",
+	"released": "02 Jul 2019",
+	"runtime":"129 min",
+	"genre":"Action, Adventure, Sci-Fi",
+	"director": "Jon Watts",
+    "actors": "Tom Holland, Samuel L. Jackson, Jake Gyllenhaal, Marisa Tomei",
+	"plot":"Following the events of Avengers: Endgame, Spider-Man must step up to take on new threats in a world that has changed forever.",
+	"poster":"https://m.media-amazon.com/images/M/MV5BMGZlNTY1ZWUtYTMzNC00ZjUyLWE0MjQtMTMxN2E3ODYxMWVmXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_SX300.jpg",
+	"trailer":"https://www.youtube.com/embed/Nt9L1jCKGnE",
+	"rating":"69"
   },
   {
     "movieId": "5",
-    "name": "Pirates of the Caribbean: Dead Men Tell No Tales",
-    "picture": "https://www.focusoncode.com/uploads/demo/movies-trailer/images/5.jpg"
+    "title": "Harry Potter and the Deathly Hallows: Part 2",
+	"released": "15 Jul 2011",
+	"runtime":"130 min",
+	"genre":"Adventure, Drama, Fantasy, Mystery",
+	"director": "David Yates",
+    "actors": "Ralph Fiennes, Michael Gambon, Alan Rickman, Daniel Radcliffe",
+	"plot":"Harry, Ron, and Hermione search for Voldemorts remaining Horcruxes in their effort to destroy the Dark Lord as the final battle rages on at Hogwarts.",
+	"poster":"https://m.media-amazon.com/images/M/MV5BMjIyZGU4YzUtNDkzYi00ZDRhLTljYzctYTMxMDQ4M2E0Y2YxXkEyXkFqcGdeQXVyNTIzOTk5ODM@._V1_SX300.jpg",
+	"trailer":"https://www.youtube.com/embed/5NYt1qirBWg",
+	"rating":"85"
   },
   {
     "movieId": "6",
-    "name": "Fifty Shades Darker",
-    "picture": "https://www.focusoncode.com/uploads/demo/movies-trailer/images/6.jpg"
+    "title": "Avengers: Endgame",
+	"released": "26 Apr 2019",
+	"runtime":"181 min",
+	"genre":"Action, Adventure, Drama, Sci-Fi",
+	"director": "Anthony Russo, Joe Russo",
+    "actors": "Robert Downey Jr., Chris Evans, Mark Ruffalo, Chris Hemsworth",
+	"plot":"After the devastating events of Avengers: Infinity War, the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to reverse Thanos actions and restore balance to the universe.",
+	"poster":"https://m.media-amazon.com/images/M/MV5BMTc5MDE2ODcwNV5BMl5BanBnXkFtZTgwMzI2NzQ2NzM@._V1_SX300.jpg",
+	"trailer":"https://www.youtube.com/embed/TcMBFSGVi1c",
+	"rating":"78"
   },
   {
     "movieId": "7",
-    "name": "Transformers: The Last Knight",
-    "picture": "https://www.focusoncode.com/uploads/demo/movies-trailer/images/7.jpg"
+    "title": "Assassins Creed",
+	"released": "21 Dec 2016",
+	"runtime":"115 min",
+	"genre":"Action, Adventure, Sci-Fi",
+	"director": "Justin Kurzel",
+    "actors": "Michael Fassbender, Marion Cotillard, Jeremy Irons, Brendan Gleeson",
+	"plot":"Callum Lynch explores the memories of his ancestor Aguilar de Nerha and gains the skills of a Master Assassin, before taking on the secret Templar society.",
+	"poster":"https://m.media-amazon.com/images/M/MV5BNzE1OTczNTc1OF5BMl5BanBnXkFtZTgwMzgyMDI3MDI@._V1_SX300.jpg",
+	"trailer":"https://www.youtube.com/embed/gfJVoF5ko1Y",
+	"rating":"36"
   },
   {
     "movieId": "8",
-    "name": "xXx: Return of Xander Cage",
-    "picture": "https://www.focusoncode.com/uploads/demo/movies-trailer/images/8.jpg"
+    "title": "Ratatouille",
+	"released": "29 Jun 2007",
+	"runtime":"111 min",
+	"genre":"Animation, Adventure, Comedy, Family, Fantasy",
+	"director": "Brad Bird, Jan Pinkava",
+    "actors": "Patton Oswalt, Ian Holm, Lou Romano, Brian Dennehy",
+	"plot":"A rat who can cook makes an unusual alliance with a young kitchen worker at a famous restaurant.",
+	"poster":"https://m.media-amazon.com/images/M/MV5BMTMzODU0NTkxMF5BMl5BanBnXkFtZTcwMjQ4MzMzMw@@._V1_SX300.jpg",
+	"trailer":"https://www.youtube.com/embed/uVeNEbh3A4U",
+	"rating":"96"
+  },
+  {
+    "movieId": "9",
+    "title": "Pirates of the Caribbean: Dead Men Tell No Tales",
+	"released": "26 May 2017",
+	"runtime":"129 min",
+	"genre":"Action, Adventure, Fantasy",
+	"director": "Joachim Rønning, Espen Sandberg",
+    "actors": "Johnny Depp, Javier Bardem, Geoffrey Rush, Brenton Thwaites",
+	"plot":"Captain Jack Sparrow is pursued by old rival Captain Salazar and a crew of deadly ghosts who have escaped from the Devils Triangle. They are determined to kill every pirate at sea...notably Jack.",
+	"poster":"https://m.media-amazon.com/images/M/MV5BMTYyMTcxNzc5M15BMl5BanBnXkFtZTgwOTg2ODE2MTI@._V1_SX300.jpg",
+	"trailer":"https://www.youtube.com/embed/Hgeu5rhoxxY",
+	"rating":"39"
+  },
+  {
+    "movieId": "10",
+    "title": "Star Trek Into Darkness",
+	"released": "16 May 2013",
+	"runtime":"132 min",
+	"genre":"Action, Adventure, Sci-Fi",
+	"director": "J.J. Abrams",
+    "actors": "Chris Pine, Zachary Quinto, Zoe Saldana, Karl Urban",
+	"plot":"After the crew of the Enterprise find an unstoppable force of terror from within their own organization, Captain Kirk leads a manhunt to a war-zone world to capture a one-man weapon of mass destruction.",
+	"poster":"https://m.media-amazon.com/images/M/MV5BMTk2NzczOTgxNF5BMl5BanBnXkFtZTcwODQ5ODczOQ@@._V1_SX300.jpg",
+	"trailer":"https://www.youtube.com/embed/QAEkuVgt6Aw",
+	"rating":"72"
   }
 ]

@@ -1,23 +1,7 @@
-const mysql = require('mysql');
+const connection = require("../../models/db.js");
 const users = require('./users.json');
 const movies = require('./movies.json');
-
-const connection = mysql.createConnection({
-    host: "localhost",
-    user: "tomer",
-    password: "180193St",
-    database: "movieMojoDB"
-});
-
-connection.connect(error => {
-    if (error){ console.log('No Database created'); return; }
-    console.log("Successfully connected to the database");
-
-    createTables();
-    insertUsers();
-    insertMovies();
-
-});
+const posters = require('./posters.json');
 
 const createTables = () => {
     const tableUsers = `CREATE TABLE Users (
@@ -30,24 +14,45 @@ const createTables = () => {
 
     const tableMovies = `CREATE TABLE Movies (
         movieId int NOT NULL AUTO_INCREMENT,
-        name varchar(255) NOT NULL,
-        picture varchar(255) NOT NULL,
+        title varchar(255) NOT NULL,
+        released varchar(255) NOT NULL,
+        runtime varchar(255) NOT NULL,
+        genre varchar(255) NOT NULL,
+        director varchar(255) NOT NULL,
+        actors varchar(255) NOT NULL,
+        plot varchar(255) NOT NULL,
+        poster varchar(255) NOT NULL,
+        trailer varchar(255) NOT NULL,
+        rating int NOT NULL,
         PRIMARY KEY (movieId)
     )`;
 
+    const tablePosters = `CREATE TABLE Posters (
+        posterId int NOT NULL AUTO_INCREMENT,
+        movieId int NOT NULL,
+        poster varchar(255) NOT NULL,
+        PRIMARY KEY (posterId),
+        FOREIGN KEY (movieId) references Movies(movieId)
+    )`;
+
     connection.query(tableUsers, (error, result) => {
-        if (error)
-            console.log("Users table already exists");
+        if (error) throw error;
         else
             console.log("Users table created");
     });
 
     connection.query(tableMovies, (error, result) => {
-        if (error)
-            console.log("Movies table already exists");
+        if (error) throw error;
 
         else
             console.log("Movies table created");
+    });
+
+    connection.query(tablePosters, (error, result) => {
+        if (error) throw error;
+
+        else
+            console.log("Posters table created");
     });
 }
 
@@ -62,7 +67,8 @@ const insertUsers = () => {
 
     const sql = `INSERT INTO Users VALUES ${values}`;
     connection.query(sql, function (err, result) {
-        if (err) console.log('Users can not be added. Drop table to add again');
+        if (err) throw err;
+
         else console.log("Users inserted");
     });
 }
@@ -70,21 +76,51 @@ const insertUsers = () => {
 const insertMovies = () => {
     let values = '';
     movies.map(movie => {
-        values += `(${movie.movieId},'${movie.name}','${movie.picture}'),`;
+        values += `(` +
+            ` ${movie.movieId},` +
+            `'${movie.title}',` +
+            `'${movie.released}', ` +
+            `'${movie.runtime}',` +
+            `'${movie.genre}', ` +
+            `'${movie.director}',` +
+            `'${movie.actors}', ` +
+            `'${movie.plot}',` +
+            `'${movie.poster}', ` +
+            `'${movie.trailer}',` +
+            `${movie.rating}` +
+            `),`;
     });
 
     //drop the last ',' from the string
     values = values.substr(0, values.length - 1);
 
-    const sql = `INSERT INTO Movies VALUES ${values}`;
+    const sql = `INSERT INTO Movies VALUES ${values} `;
     connection.query(sql, function (err, result) {
-        if (err) {
-            console.log('Movies can not be added. Drop table to add again');
-            process.exit();
-        }
-        else {
-            console.log("Movies inserted");
-            process.exit();
-        }
+        if (err) throw err;
+
+        else console.log("Movies inserted");
     });
 }
+
+const insertPosters = () => {
+    let values = '';
+    posters.map(poster => {
+        values += `(${poster.posterId},'${poster.movieId}','${poster.poster}'),`;
+    });
+
+    //drop the last ',' from the string
+    values = values.substr(0, values.length - 1);
+
+    const sql = `INSERT INTO Posters VALUES ${values}`;
+    connection.query(sql, function (err, result) {
+        if (err) throw err;
+
+        else console.log("Posters inserted");
+    });
+}
+
+createTables();
+insertUsers();
+insertMovies();
+insertPosters();
+
