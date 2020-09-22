@@ -3,17 +3,6 @@ const connection = require("./db.js");
 // constructor
 const User = {};
 
-User.getAllUsers = (res) => {
-    const sql = 'SELECT * FROM Users';
-    connection.query(sql, (err, result) => {
-        if (err) {
-            console.log("error: ", err);
-            return;
-        }
-        res.send(result);
-    });
-}
-
 User.validateUser = (userName, password, cb) => {
     const sql = 'SELECT userId, userName FROM Users where userName= ? AND password= ?'
     connection.query(sql, [userName, password], (err, result) => {

@@ -6,7 +6,6 @@ const cors = require("cors");
 const indexRouter = require('./routes/index.js');
 const moviesRouter = require('./routes/moviesRoute.js');
 const postersRouter = require('./routes/postersRoute.js');
-const usersRouter = require('./routes/usersRoute.js');
 const loginRouter = require('./routes/login.js');
 
 const port = 9000;
@@ -22,7 +21,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use('/', indexRouter);
 app.use('/movies', moviesRouter);
 app.use('/posters', postersRouter);
-app.use('/users', usersRouter);
 app.use('/login', loginRouter);
 
 
