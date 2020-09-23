@@ -2,6 +2,7 @@ const connection = require("../../models/db.js");
 const users = require('./users.json');
 const movies = require('./movies.json');
 const posters = require('./posters.json');
+const favorites = require('./favorites.json');
 
 const createTables = () => {
     const tableUsers = `CREATE TABLE Users (
@@ -35,6 +36,15 @@ const createTables = () => {
         FOREIGN KEY (movieId) references Movies(movieId)
     )`;
 
+    const tableFavorites = `CREATE TABLE Favorites (
+        indexFav int NOT NULL AUTO_INCREMENT,
+        userId int NOT NULL,
+        movieId int NOT NULL,
+        PRIMARY KEY (indexFav),
+        FOREIGN KEY (userId) references Users(userId),
+        FOREIGN KEY (movieId) references Movies(movieId)
+    )`;
+
     connection.query(tableUsers, (error, result) => {
         if (error) throw error;
         else
@@ -53,6 +63,13 @@ const createTables = () => {
 
         else
             console.log("Posters table created");
+    });
+
+    connection.query(tableFavorites, (error, result) => {
+        if (error) throw error;
+
+        else
+            console.log("Favorites table created");
     });
 }
 
@@ -119,8 +136,26 @@ const insertPosters = () => {
     });
 }
 
+const insertFavorites = () => {
+    let values = '';
+    favorites.map(favorite => {
+        values += `(${favorite.indexFav},'${favorite.userId}','${favorite.movieId}'),`;
+    });
+
+    //drop the last ',' from the string
+    values = values.substr(0, values.length - 1);
+
+    const sql = `INSERT INTO Favorites VALUES ${values}`;
+    connection.query(sql, function (err, result) {
+        if (err) throw err;
+
+        else console.log("Favorites inserted");
+    });
+}
+
 createTables();
 insertUsers();
 insertMovies();
 insertPosters();
+insertFavorites();
 

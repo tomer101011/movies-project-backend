@@ -1,13 +1,19 @@
 [
   {
     "userId": "1",
+    "username": "Ram",
+    "password": "admin",
+    "isManager": "true"
+  },
+  {
+    "userId": "2",
     "username": "Tomer",
     "password": "1234",
     "isManager": "false"
   },
   {
-    "userId": "2",
-    "username": "Ram",
+    "userId": "3",
+    "username": "Igor",
     "password": "4321",
     "isManager": "false"
   }

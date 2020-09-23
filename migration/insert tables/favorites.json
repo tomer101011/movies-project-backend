@@ -1,0 +1,62 @@
+[
+  {
+	"indexFav": "1", 
+    "userId": "1",
+    "movieId": "1"
+  },
+  {
+	"indexFav": "2",
+    "userId": "1",
+    "movieId": "4"
+  },
+  {
+	"indexFav": "3",
+    "userId": "1",
+    "movieId": "6"
+  },
+  {
+	"indexFav": "4",
+    "userId": "1",
+    "movieId": "8"
+  },
+  {
+	"indexFav": "5",
+    "userId": "2",
+    "movieId": "10"
+  },
+  {
+	"indexFav": "6",
+    "userId": "2",
+    "movieId": "5"
+  },
+  {
+	"indexFav": "7",
+    "userId": "2",
+    "movieId": "2"
+  },
+  {
+	"indexFav": "8",
+    "userId": "2",
+    "movieId": "7"
+  },
+  {
+	"indexFav": "9",
+    "userId": "3",
+    "movieId": "9"
+  },
+  {
+	"indexFav": "10",
+    "userId": "3",
+    "movieId": "6"
+  },
+  {
+	"indexFav": "11",
+    "userId": "3",
+    "movieId": "10"
+  },
+  {
+	"indexFav": "12",
+    "userId": "3",
+    "movieId": "3"
+  }
+]

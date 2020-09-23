@@ -1,12 +1,12 @@
 const express = require('express');
 const cors = require("cors");
 
-
 //all backend routes
 const indexRouter = require('./routes/index.js');
 const moviesRouter = require('./routes/moviesRoute.js');
 const postersRouter = require('./routes/postersRoute.js');
 const loginRouter = require('./routes/login.js');
+const signUpRouter = require('./routes/signUp.js');
 
 const port = 9000;
 const app = express();
@@ -22,6 +22,7 @@ app.use('/', indexRouter);
 app.use('/movies', moviesRouter);
 app.use('/posters', postersRouter);
 app.use('/login', loginRouter);
+app.use('/signup', signUpRouter);
 
 
 app.listen(port, () => { console.log(`Listen to port ${port}`) });
