@@ -17,7 +17,7 @@ Movie.getRecentMovies = (req, res) => {
 Movie.getFavoriteMovies = (req, res) => {
     const countMovies = req.params.count;
     const userId = req.body.userId;
-    const sqlFav = 'SELECT movieId FROM Favorites where userId= ?';
+    const sqlFav = 'SELECT movieId FROM Favorites WHERE userId= ?';
     const sqlMovies = `SELECT movieId, title, poster FROM Movies WHERE movieId IN(${sqlFav}) LIMIT ${countMovies}`;
     connection.query(sqlMovies, [userId], (err, result) => {
         if (err) {
@@ -33,6 +33,16 @@ Movie.getTopRatedMovies = (req, res) => {
         if (err) {
             console.log("error: ", err);
             return;
+        }
+        res.send(result);
+    });
+}
+
+Movie.getMovieInfo= (req,res)=>{
+    const sql= 'SELECT * FROM Movies WHERE movieId= ?';
+    connection.query(sql, [req.body.movieId], (err, result) => {
+        if (err) {
+            console.log("error: ", err);
         }
         res.send(result);
     });

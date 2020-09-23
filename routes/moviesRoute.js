@@ -15,4 +15,8 @@ router.post("/topRated/:count", (req, res) => {
     Movie.getTopRatedMovies(req,res);
 });
 
+router.post("/info", (req, res) => {
+    Movie.getMovieInfo(req,res);
+});
+
 module.exports = router;
