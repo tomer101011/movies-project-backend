@@ -11,7 +11,6 @@ connection.connect(error => {
     console.log("Successfully connected");
 
     createDatabase();
-
 });
 
 const createDatabase = () => {
@@ -20,5 +19,7 @@ const createDatabase = () => {
         if (error) throw error;
 
         else console.log("Database created");
+        process.exit();
     });
+    
 }

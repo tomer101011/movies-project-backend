@@ -11,8 +11,7 @@ router.post("/", (req, res) => {
         if (result.length == 0) {
             User.insertUser(user, result => {
                 const data = {
-                    userId: result,
-                    userName: user.userName
+                    userId: result
                 }
                 res.send(data);
             });

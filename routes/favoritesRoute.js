@@ -11,6 +11,14 @@ router.post("/insert", (req, res) => {
     Favorite.addFavorite(favorite, res);
 });
 
+router.post("/delete", (req, res) => {
+    const favorite = new Favorite({
+        userId: req.body.userId,
+        movieId: req.body.movieId,
+    });
+    Favorite.deleteFavorite(favorite, res);
+});
+
 router.post("/usermovie", (req, res) => {
     
     const favorite = new Favorite({

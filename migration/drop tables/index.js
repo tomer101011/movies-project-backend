@@ -26,6 +26,7 @@ const dropTables = () => {
     connection.query(dropMovies, function (err, result) {
         if (err) throw err;
         else console.log("Movies table deleted");
+        process.exit();
     });
 }
 

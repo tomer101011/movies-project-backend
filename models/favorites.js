@@ -18,6 +18,18 @@ Favorite.addFavorite = (favorite, res) => {
     });
 }
 
+Favorite.deleteFavorite= (favorite,res)=>{
+    
+    const sql= 'DELETE FROM Favorites WHERE userId= ? AND movieId= ?';
+
+    connection.query(sql, [favorite.userId, favorite.movieId], (err, result) => {
+        if (err) {
+            console.log("error: ", err);
+        }
+        res.send('favorite deleted!');
+    });
+}
+
 Favorite.searchUserFavMovie = (favorite, res) => {
 
     const sql = `SELECT movieId FROM Favorites WHERE userId= ? AND movieId= ?`;

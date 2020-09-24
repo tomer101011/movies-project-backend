@@ -33,18 +33,20 @@ Movie.getFavoriteMovies = (req, res) => {
 
         let stringFavIds = '';
         for (let i = 0; i < movieFavIds.length; i++)
-            stringFavIds += movieFavIds[i].movieId+',';
+            stringFavIds += movieFavIds[i].movieId + ',';
         stringFavIds = stringFavIds.substr(0, stringFavIds.length - 1);
 
-        const sqlMovies = `SELECT movieId, title, poster FROM Movies WHERE movieId IN(${stringFavIds}) ` +
-            `ORDER BY FIELD(movieId, ${stringFavIds}) LIMIT ${countMovies}`
+        if (stringFavIds != '') {
+            const sqlMovies = `SELECT movieId, title, poster FROM Movies WHERE movieId IN(${stringFavIds}) ` +
+                `ORDER BY FIELD(movieId, ${stringFavIds}) LIMIT ${countMovies}`
 
-        connection.query(sqlMovies, (err, result) => {
-            if (err) {
-                console.log("error: ", err);
-            }
-            res.send(result);
-        });
+            connection.query(sqlMovies, (err, result) => {
+                if (err) {
+                    console.log("error: ", err);
+                }
+                res.send(result);
+            });
+        }
     });
 }
 

@@ -150,6 +150,7 @@ const insertFavorites = () => {
         if (err) throw err;
 
         else console.log("Favorites inserted");
+        process.exit();
     });
 }
 
