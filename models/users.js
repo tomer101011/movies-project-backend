@@ -8,7 +8,7 @@ const User = function (user) {
 };
 
 User.validateUser = (userName, password, cb) => {
-    const sql = 'SELECT userId, userName FROM Users where userName= ? AND password= ?'
+    const sql = 'SELECT userId, userName FROM Users where userName= ? AND password= ?';
     connection.query(sql, [userName, password], (err, result) => {
         if (err) {
             console.log("error: ", err);

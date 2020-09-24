@@ -21,5 +21,4 @@ const createDatabase = () => {
 
         else console.log("Database created");
     });
-
 }

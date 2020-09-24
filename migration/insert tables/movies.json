@@ -2,7 +2,7 @@
   {
     "movieId": "1",
     "title": "Star Wars: The Rise of Skywalker",
-	"released": "2019",
+	"released": "20 Dec 2019",
 	"runtime":"141 min",
 	"genre":"Action, Adventure, Fantasy, Sci-Fi",
 	"director": "J.J. Abrams",
@@ -15,7 +15,7 @@
   {
     "movieId": "2",
     "title": "The Space Between Us",
-	"released": "2017",
+	"released": "03 Feb 2017",
 	"runtime":"120 min",
 	"genre":"Drama, Romance, Sci-Fi",
 	"director": "Peter Chelsom",
@@ -28,7 +28,7 @@
   {
     "movieId": "3",
     "title": "Blade Runner 2049",
-	"released": "2017",
+	"released": "06 Oct 2017",
 	"runtime":"164 min",
 	"genre":"Action, Drama, Mystery, Sci-Fi, Thriller",
 	"director": "Denis Villeneuve",
@@ -41,7 +41,7 @@
   {
     "movieId": "4",
     "title": "Spider-Man: Far from Home",
-	"released": "2019",
+	"released": "02 Jul 2019",
 	"runtime":"129 min",
 	"genre":"Action, Adventure, Sci-Fi",
 	"director": "Jon Watts",
@@ -54,7 +54,7 @@
   {
     "movieId": "5",
     "title": "Harry Potter and the Deathly Hallows: Part 2",
-	"released": "2011",
+	"released": "15 Jul 2011",
 	"runtime":"130 min",
 	"genre":"Adventure, Drama, Fantasy, Mystery",
 	"director": "David Yates",
@@ -67,7 +67,7 @@
   {
     "movieId": "6",
     "title": "Avengers: Endgame",
-	"released": "2019",
+	"released": "26 Apr 2019",
 	"runtime":"181 min",
 	"genre":"Action, Adventure, Drama, Sci-Fi",
 	"director": "Anthony Russo, Joe Russo",
@@ -80,7 +80,7 @@
   {
     "movieId": "7",
     "title": "Assassins Creed",
-	"released": "2016",
+	"released": "21 Dec 2016",
 	"runtime":"115 min",
 	"genre":"Action, Adventure, Sci-Fi",
 	"director": "Justin Kurzel",
@@ -93,7 +93,7 @@
   {
     "movieId": "8",
     "title": "Ratatouille",
-	"released": "2007",
+	"released": "29 Jun 2007",
 	"runtime":"111 min",
 	"genre":"Animation, Adventure, Comedy, Family, Fantasy",
 	"director": "Brad Bird, Jan Pinkava",
@@ -106,7 +106,7 @@
   {
     "movieId": "9",
     "title": "Pirates of the Caribbean: Dead Men Tell No Tales",
-	"released": "2017",
+	"released": "26 May 2017",
 	"runtime":"129 min",
 	"genre":"Action, Adventure, Fantasy",
 	"director": "Joachim Rønning, Espen Sandberg",
@@ -119,7 +119,7 @@
   {
     "movieId": "10",
     "title": "Star Trek Into Darkness",
-	"released": "2013",
+	"released": "16 May 2013",
 	"runtime":"132 min",
 	"genre":"Action, Adventure, Sci-Fi",
 	"director": "J.J. Abrams",

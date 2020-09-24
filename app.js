@@ -7,6 +7,7 @@ const moviesRouter = require('./routes/moviesRoute.js');
 const postersRouter = require('./routes/postersRoute.js');
 const loginRouter = require('./routes/login.js');
 const signUpRouter = require('./routes/signUp.js');
+const favoritesRouter = require('./routes/favoritesRoute.js');
 
 const port = 9000;
 const app = express();
@@ -23,6 +24,7 @@ app.use('/movies', moviesRouter);
 app.use('/posters', postersRouter);
 app.use('/login', loginRouter);
 app.use('/signup', signUpRouter);
+app.use('/favorites', favoritesRouter);
 
 
 app.listen(port, () => { console.log(`Listen to port ${port}`) });
