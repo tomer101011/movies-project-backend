@@ -157,19 +157,6 @@
   },
   {
     "movieId": "13",
-    "title": "Valerian and the City of a Thousand Planets",
-	"released": "21 Jul 2017",
-	"runtime":"136 min",
-	"genre":"Action, Adventure, Fantasy, Sci-Fi",
-	"director": "Luc Besson",
-    "actors": "Dane DeHaan, Cara Delevingne, Clive Owen, Rihanna",
-	"plot":"A dark force threatens Alpha, a vast metropolis and home to species from a thousand planets. Special operatives Valerian and Laureline must race to identify the marauding menace and safeguard not just Alpha, but the future of the universe.",
-	"poster":"https://m.media-amazon.com/images/M/MV5BMTkxMDAxNDUyNV5BMl5BanBnXkFtZTgwOTc3MzcxMjI@._V1_SX300.jpg",
-	"trailer":"https://www.youtube.com/embed/NNrK7xVG3PM",
-	"rating":"51"
-  },
-  {
-    "movieId": "14",
     "title": "Ready Player One",
 	"released": "29 Mar 2018",
 	"runtime":"140 min",
@@ -182,7 +169,7 @@
 	"rating":"64"
   },
   {
-    "movieId": "15",
+    "movieId": "14",
     "title": "Midway",
 	"released": "08 Nov 2019",
 	"runtime":"138 min",
@@ -195,7 +182,7 @@
 	"rating":"47"
   },
   {
-    "movieId": "16",
+    "movieId": "15",
     "title": "Dunkirk",
 	"released": "21 Jul 2017",
 	"runtime":"106 min",
@@ -208,7 +195,7 @@
 	"rating":"94"
   },
   {
-    "movieId": "17",
+    "movieId": "16",
     "title": "The Hunger Games: Catching Fire",
 	"released": "22 Nov 2013",
 	"runtime":"146 min",
@@ -221,7 +208,7 @@
 	"rating":"76"
   },
   {
-    "movieId": "18",
+    "movieId": "17",
     "title": "1917",
 	"released": "10 Jan 2020",
 	"runtime":"119 min",
@@ -234,7 +221,7 @@
 	"rating":"78"
   },
   {
-    "movieId": "19",
+    "movieId": "18",
     "title": "Joker",
 	"released": "04 Oct 2019",
 	"runtime":"122 min",
@@ -247,7 +234,7 @@
 	"rating":"59"
   },
   {
-    "movieId": "20",
+    "movieId": "19",
     "title": "Pearl Harbor",
 	"released": "25 May 2001",
 	"runtime":"183 min",
@@ -260,7 +247,7 @@
 	"rating":"44"
   },
   {
-    "movieId": "21",
+    "movieId": "20",
     "title": "Rogue One: A Star Wars Story",
 	"released": "16 Dec 2016",
 	"runtime":"133 min",
@@ -271,18 +258,5 @@
 	"poster":"https://m.media-amazon.com/images/M/MV5BMjEwMzMxODIzOV5BMl5BanBnXkFtZTgwNzg3OTAzMDI@._V1_SX300.jpg",
 	"trailer":"https://www.youtube.com/embed/frdj1zb9sMY",
 	"rating":"65"
-  },
-  {
-    "movieId": "22",
-    "title": "Guardians of the Galaxy Vol. 2",
-	"released": "05 May 2017",
-	"runtime":"136 min",
-	"genre":"Action, Adventure, Comedy, Sci-Fi",
-	"director": "James Gunn",
-    "actors": "Chris Pratt, Zoe Saldana, Dave Bautista, Vin Diesel",
-	"plot":"The Guardians struggle to keep together as a team while dealing with their personal family issues, notably Star-Lord encounter with his father the ambitious celestial being Ego.",
-	"poster":"https://m.media-amazon.com/images/M/MV5BNjM0NTc0NzItM2FlYS00YzEwLWE0YmUtNTA2ZWIzODc2OTgxXkEyXkFqcGdeQXVyNTgwNzIyNzg@._V1_SX300.jpg",
-	"trailer":"https://www.youtube.com/embed/wUn05hdkhjM",
-	"rating":"67"
   }
 ]
