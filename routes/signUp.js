@@ -7,7 +7,7 @@ router.post("/", (req, res) => {
         userName: req.body.newUserName,
         password: req.body.newPassword,
     });
-    User.searchUserUserName(user.userName, result => {
+    User.searchUserName(user.userName, result => {
         if (result.length == 0) {
             User.insertUser(user, result => {
                 const data = {

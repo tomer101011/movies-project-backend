@@ -4,8 +4,8 @@ const connection = require("./db.js");
 const Movie = {};
 
 Movie.getRecentMovies = (req, res) => {
-    sqlConvertReleased = `(select str_to_date(released,'%d %M %Y'))`
-    const sql = `SELECT movieId, title, poster FROM Movies ORDER BY ${sqlConvertReleased} desc LIMIT ${req.params.count}`;
+    sqlConvertReleased = `(SELECT STR_TO_DATE(released,'%d %M %Y'))`
+    const sql = `SELECT movieId, title, poster FROM Movies ORDER BY ${sqlConvertReleased} DESC LIMIT ${req.params.count}`;
     connection.query(sql, (err, result) => {
         if (err) {
             console.log("error: ", err);
@@ -50,7 +50,7 @@ Movie.getFavoriteMovies = (req, res) => {
 }
 
 Movie.getTopRatedMovies = (req, res) => {
-    const sql = `SELECT movieId, title, poster FROM Movies ORDER BY rating desc LIMIT ${req.params.count}`;
+    const sql = `SELECT movieId, title, poster FROM Movies ORDER BY rating DESC LIMIT ${req.params.count}`;
     connection.query(sql, (err, result) => {
         if (err) {
             console.log("error: ", err);
