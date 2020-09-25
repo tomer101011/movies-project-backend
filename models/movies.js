@@ -32,8 +32,7 @@ Movie.getFavoriteMovies = (req, res) => {
     Movie.getFavoritesIds(userId, movieFavIds => {
 
         let stringFavIds = '';
-        for (let i = 0; i < movieFavIds.length; i++)
-            stringFavIds += movieFavIds[i].movieId + ',';
+        movieFavIds.map(item => stringFavIds += item.movieId + ',');
         stringFavIds = stringFavIds.substr(0, stringFavIds.length - 1);
 
         if (stringFavIds != '') {
