@@ -6,8 +6,6 @@ const dropTables = () => {
     const dropUsers = "DROP TABLE Users";
     const dropMovies = "DROP TABLE Movies";
 
-    
-
     connection.query(dropPosters, function (err, result) {
         if (err) throw err;
         else console.log("Posters table deleted");

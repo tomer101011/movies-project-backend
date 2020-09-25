@@ -1,9 +1,10 @@
 const mysql = require('mysql');
+const config = require("../../models/config.js");
 
 const connection = mysql.createConnection({
-    host: "localhost",
-    user: "tomer",
-    password: "180193St"
+    host: config.host,
+    user: config.user,
+    password: config.password
 });
 
 connection.connect(error => {
