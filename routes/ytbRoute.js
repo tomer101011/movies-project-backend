@@ -8,7 +8,7 @@ router.post("/", (req, res) => {
     const searchMovie= req.body.search;
     const YTB_API_KEY = apiKeys.ytbApi;
     const urlYoutube = `https://www.googleapis.com/youtube/v3/search?q=${searchMovie} movie trailer&maxResults=1&key=${YTB_API_KEY}`;
-
+    
     axios.get(urlYoutube)
         .then(resYTB => {
 
@@ -16,7 +16,7 @@ router.post("/", (req, res) => {
             res.send(trailer);
         })
         .catch(err => {
-            console.log(err);
+            res.send(err);
         })
 });
 

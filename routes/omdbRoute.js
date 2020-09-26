@@ -26,7 +26,7 @@ router.post("/", (req, res) => {
                 }
 
                 const urlYTB = `${server_path}/ytb`;
-                axios.post(urlYTB, { search: searchMovie })
+                axios.post(urlYTB, { search: movieInfo.title })
                     .then(resYTB => {
                         const trailer = resYTB.data;
 
