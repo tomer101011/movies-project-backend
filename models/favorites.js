@@ -30,6 +30,16 @@ Favorite.deleteFavorite= (favorite,res)=>{
     });
 }
 
+Favorite.getFavoritesIds = (userId, cb) => {
+    const sqlFav = 'SELECT movieId FROM Favorites WHERE userId= ? ORDER BY indexFav DESC';
+    connection.query(sqlFav, [userId], (err, result) => {
+        if (err) {
+            console.log("error: ", err);
+        }
+        cb(result);
+    });
+}
+
 Favorite.searchUserFavMovie = (favorite, res) => {
 
     const sql = `SELECT movieId FROM Favorites WHERE userId= ? AND movieId= ?`;

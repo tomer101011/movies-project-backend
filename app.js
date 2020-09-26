@@ -8,6 +8,8 @@ const postersRouter = require('./routes/postersRoute.js');
 const loginRouter = require('./routes/login.js');
 const signUpRouter = require('./routes/signUp.js');
 const favoritesRouter = require('./routes/favoritesRoute.js');
+const omdbRouter = require('./routes/omdbRoute.js');
+const ytbRouter = require('./routes/ytbRoute.js');
 
 const port = 9000;
 const app = express();
@@ -25,6 +27,8 @@ app.use('/posters', postersRouter);
 app.use('/login', loginRouter);
 app.use('/signup', signUpRouter);
 app.use('/favorites', favoritesRouter);
+app.use('/omdb', omdbRouter);
+app.use('/ytb', ytbRouter);
 
 
 app.listen(port, () => { console.log(`Listen to port ${port}`) });

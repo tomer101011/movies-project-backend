@@ -1,4 +1,5 @@
 const connection = require("./db.js");
+const Favorite = require('./favorites.js');
 
 // constructor
 const Movie = {};
@@ -15,21 +16,11 @@ Movie.getRecentMovies = (req, res) => {
     });
 }
 
-Movie.getFavoritesIds = (userId, cb) => {
-    const sqlFav = 'SELECT movieId FROM Favorites WHERE userId= ? ORDER BY indexFav DESC';
-    connection.query(sqlFav, [userId], (err, result) => {
-        if (err) {
-            console.log("error: ", err);
-        }
-        cb(result);
-    });
-}
-
 Movie.getFavoriteMovies = (req, res) => {
     const countMovies = req.params.count;
     const userId = req.body.userId;
 
-    Movie.getFavoritesIds(userId, movieFavIds => {
+    Favorite.getFavoritesIds(userId, movieFavIds => {
 
         let stringFavIds = '';
         movieFavIds.map(item => stringFavIds += item.movieId + ',');
@@ -63,6 +54,16 @@ Movie.getTopRatedMovies = (req, res) => {
 Movie.getMovieInfo = (req, res) => {
     const sql = 'SELECT * FROM Movies WHERE movieId= ?';
     connection.query(sql, [req.body.movieId], (err, result) => {
+        if (err) {
+            console.log("error: ", err);
+        }
+        res.send(result);
+    });
+}
+
+Movie.getMovieIdByTitle = (req, res) => {
+    const sql = 'SELECT movieId FROM Movies WHERE title= ?';
+    connection.query(sql, [req.body.search], (err, result) => {
         if (err) {
             console.log("error: ", err);
         }
