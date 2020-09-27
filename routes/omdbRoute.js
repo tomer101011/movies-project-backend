@@ -1,13 +1,13 @@
 const express = require('express');
 const axios = require('axios');
-const apiKeys = require('../models/apiKeys.js');
-const server_path = require('../models/server.js');
+const dotenv = require('dotenv');
+dotenv.config();
 
 const router = express.Router();
 
 router.post("/", (req, res) => {
     const searchMovie = req.body.search;
-    const OMDB_API_KEY = apiKeys.omdbApi;
+    const OMDB_API_KEY = process.env.OMDB_API;
     const urlOMDb = `http://www.omdbapi.com/?t=${searchMovie}&apikey=${OMDB_API_KEY}`;
 
     axios.get(urlOMDb)
@@ -25,6 +25,7 @@ router.post("/", (req, res) => {
                     rating: resOMDb.data.Metascore
                 }
 
+                const server_path = process.env.SERVER_PATH
                 const urlYTB = `${server_path}/ytb`;
                 axios.post(urlYTB, { search: movieInfo.title })
                     .then(resYTB => {
@@ -33,7 +34,7 @@ router.post("/", (req, res) => {
                         const urlMovieDB = `${server_path}/movies/title`;
                         axios.post(urlMovieDB, { search: movieInfo.title })
                             .then(resMovieDB => {
-                                
+
                                 const movieId = resMovieDB.data;
                                 const data = {
                                     movieInfo: movieInfo,

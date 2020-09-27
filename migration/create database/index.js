@@ -1,10 +1,11 @@
 const mysql = require('mysql');
-const config = require("../../models/config.js");
+const dotenv = require('dotenv');
+dotenv.config({ path: __dirname + '/./../../.env' });
 
 const connection = mysql.createConnection({
-    host: config.host,
-    user: config.user,
-    password: config.password
+    host: process.env.HOST,
+    user: process.env.USER,
+    password: process.env.PASSWORD
 });
 
 connection.connect(error => {
@@ -22,5 +23,5 @@ const createDatabase = () => {
         else console.log("Database created");
         process.exit();
     });
-    
+
 }

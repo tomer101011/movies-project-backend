@@ -1,5 +1,7 @@
 const express = require('express');
 const cors = require("cors");
+const dotenv = require('dotenv');
+dotenv.config();
 
 //all backend routes
 const indexRouter = require('./routes/index.js');
@@ -11,7 +13,8 @@ const favoritesRouter = require('./routes/favoritesRoute.js');
 const omdbRouter = require('./routes/omdbRoute.js');
 const ytbRouter = require('./routes/ytbRoute.js');
 
-const port = 9000;
+const port = process.env.PORT || 9000;
+
 const app = express();
 
 //allow cross platform connection for frontend and backend
@@ -29,6 +32,5 @@ app.use('/signup', signUpRouter);
 app.use('/favorites', favoritesRouter);
 app.use('/omdb', omdbRouter);
 app.use('/ytb', ytbRouter);
-
 
 app.listen(port, () => { console.log(`Listen to port ${port}`) });
