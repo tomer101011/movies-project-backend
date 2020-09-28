@@ -30,10 +30,10 @@ const createTables = () => {
 
     const tablePosters = `CREATE TABLE Posters (
         posterId int NOT NULL AUTO_INCREMENT,
-        movieId int NOT NULL,
+        title varchar(255) NOT NULL,
+        plot varchar(255) NOT NULL,
         poster varchar(255) NOT NULL,
-        PRIMARY KEY (posterId),
-        FOREIGN KEY (movieId) references Movies(movieId)
+        PRIMARY KEY (posterId)
     )`;
 
     const tableFavorites = `CREATE TABLE Favorites (
@@ -122,7 +122,7 @@ const insertMovies = () => {
 const insertPosters = () => {
     let values = '';
     posters.map(poster => {
-        values += `(${poster.posterId},'${poster.movieId}','${poster.poster}'),`;
+        values += `(${poster.posterId},'${poster.title}','${poster.plot}','${poster.poster}'),`;
     });
 
     //drop the last ',' from the string

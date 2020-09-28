@@ -4,9 +4,7 @@ const connection = require("./db.js");
 const Poster = {};
 
 Poster.getAllPosters = (res) => {
-    const sql = 'SELECT Movies.title, Movies.plot, Posters.poster ' +
-        'FROM Movies INNER JOIN Posters ' +
-        'ON Movies.movieId = Posters.movieId';
+    const sql = 'SELECT * FROM Posters';
     connection.query(sql, (err, result) => {
         if (err) {
             console.log("error: ", err);

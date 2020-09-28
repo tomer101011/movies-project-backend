@@ -1,22 +1,26 @@
 [
   {
     "posterId": "1",
-	"movieId": "1",
+    "title": "Star Wars: Episode IX - The Rise of Skywalker",
+    "plot": "The surviving members of the resistance face the First Order once again, and the legendary conflict between the Jedi and the Sith reaches its peak bringing the Skywalker saga to its end.",
     "poster": "https://1.bp.blogspot.com/-hcfAOXtey6w/XerQ38Xw7aI/AAAAAAAASB0/TEwtRQO85TETd8Lxp0hdRQDdZYo4JtgdwCLcBGAsYHQ/w914-h514-p-k-no-nu/star-wars-the-rise-of-skywalker-movie-poster-uhdpaper.com-4K-7.554.jpg"
   },
   {
     "posterId": "2",
-	"movieId": "2",
+    "title": "The Space Between Us",
+    "plot": "The first human born on Mars travels to Earth for the first time, experiencing the wonders of the planet through fresh eyes. He embarks on an adventure with a street-smart girl to discover how he came to be.",
     "poster": "https://images.desimartini.com/media/main/original/2017-2/a23bc4dc-c0a2-4b33-9fd6-85c3a63f9a02.jpg"
   },
   {
     "posterId": "3",
-	"movieId": "5",
+    "title": "Harry Potter and the Deathly Hallows: Part 2",
+    "plot": "Harry, Ron, and Hermione search for Voldemort\\'s remaining Horcruxes in their effort to destroy the Dark Lord as the final battle rages on at Hogwarts.",
     "poster": "https://static2.srcdn.com/wordpress/wp-content/uploads/2020/01/Deathly-Hallows-Part-2.jpg"
   },
   {
     "posterId": "4",
-	"movieId": "6",
+    "title": "Avengers: Endgame",
+    "plot": "After the devastating events of Avengers: Infinity War (2018), the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to reverse Thanos\\' actions and restore balance to the universe.",
     "poster": "https://preview.redd.it/w4botl43ntm21.png?auto=webp&s=77462948e845538794084da8255355a83f354e89"
   }
 ]

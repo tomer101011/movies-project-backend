@@ -1,8 +1,46 @@
 const connection = require("./db.js");
 const Favorite = require('./favorites.js');
+const Poster = require('./posters.js');
 
 // constructor
-const Movie = {};
+const Movie = function (movie) {
+    this.title = movie.title;
+    this.released = movie.released;
+    this.runtime = movie.runtime;
+    this.genre = movie.genre;
+    this.director = movie.director;
+    this.actors = movie.actors;
+    this.plot = movie.plot;
+    this.poster = movie.poster;
+    this.trailer = movie.trailer;
+    this.rating = movie.rating;
+};
+
+Movie.addMovie = (movie, res) => {
+
+    const sql = 'INSERT INTO Movies SET ?';
+
+    connection.query(sql, movie, (err, result) => {
+        if (err) {
+            console.log("error: ", err);
+        }
+        res.send(result);
+    });
+}
+
+Movie.deleteMovie = (movieId, res) => {
+
+    Favorite.deleteFavoritesOfMovie(movieId);
+
+    const sql = 'DELETE FROM Movies WHERE movieId= ?';
+
+    connection.query(sql, [movieId], (err, result) => {
+        if (err) {
+            console.log("error: ", err);
+        }
+        res.send('movie deleted!');
+    });
+}
 
 Movie.getRecentMovies = (req, res) => {
     sqlConvertReleased = `(SELECT STR_TO_DATE(released,'%d %M %Y'))`

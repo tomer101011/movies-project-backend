@@ -8,7 +8,7 @@ const Favorite = function (favorite) {
 
 Favorite.addFavorite = (favorite, res) => {
 
-    const sql = 'INSERT INTO Favorites SET  ?';
+    const sql = 'INSERT INTO Favorites SET ?';
 
     connection.query(sql, favorite, (err, result) => {
         if (err) {
@@ -17,10 +17,20 @@ Favorite.addFavorite = (favorite, res) => {
         res.send('favorite added!');
     });
 }
+Favorite.deleteFavoritesOfMovie = (movieId) => {
+    const sql = 'DELETE FROM Favorites WHERE movieId= ?';
 
-Favorite.deleteFavorite= (favorite,res)=>{
-    
-    const sql= 'DELETE FROM Favorites WHERE userId= ? AND movieId= ?';
+    connection.query(sql, [movieId], (err, result) => {
+        if (err) {
+            console.log("error: ", err);
+        }
+    });
+}
+
+
+Favorite.deleteFavorite = (favorite, res) => {
+
+    const sql = 'DELETE FROM Favorites WHERE userId= ? AND movieId= ?';
 
     connection.query(sql, [favorite.userId, favorite.movieId], (err, result) => {
         if (err) {
