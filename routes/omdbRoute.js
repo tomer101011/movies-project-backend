@@ -1,5 +1,6 @@
 const express = require('express');
 const axios = require('axios');
+const Movie = require('../models/movies.js');
 const dotenv = require('dotenv');
 dotenv.config();
 
@@ -25,26 +26,23 @@ router.post("/", (req, res) => {
                     rating: resOMDb.data.Metascore
                 }
 
-                const server_path = process.env.SERVER_PATH
-                const urlYTB = `${server_path}/ytb`;
-                axios.post(urlYTB, { search: movieInfo.title })
+                const YTB_API_KEY = process.env.YTB_API;
+                const urlYTB = `https://www.googleapis.com/youtube/v3/search?q=${movieInfo.title} movie trailer&maxResults=1&key=${YTB_API_KEY}`;
+                axios.get(urlYTB)
                     .then(resYTB => {
-                        const trailer = resYTB.data;
 
-                        const urlMovieDB = `${server_path}/movies/title`;
-                        axios.post(urlMovieDB, { search: movieInfo.title })
-                            .then(resMovieDB => {
+                        const trailer = `https://www.youtube.com/embed/${resYTB.data.items[0].id.videoId}`;
+                        Movie.getMovieIdByTitle(movieInfo.title, result => {
 
-                                const movieId = resMovieDB.data;
-                                const data = {
-                                    movieInfo: movieInfo,
-                                    trailer: trailer,
-                                    movieId: movieId
-                                }
-                                res.send(data);
+                            const movieId = result;
 
-                            })
-                            .catch(err => { console.log(err); })
+                            const data = {
+                                movieInfo: movieInfo,
+                                trailer: trailer,
+                                movieId: movieId
+                            }
+                            res.send(data);
+                        });
                     })
                     .catch(err => { console.log(err); })
             }

@@ -19,8 +19,4 @@ router.post("/info", (req, res) => {
     Movie.getMovieInfo(req, res);
 });
 
-router.post("/title", (req, res) => {
-    Movie.getMovieIdByTitle(req, res);
-});
-
 module.exports = router;

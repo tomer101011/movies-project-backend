@@ -11,7 +11,6 @@ const loginRouter = require('./routes/login.js');
 const signUpRouter = require('./routes/signUp.js');
 const favoritesRouter = require('./routes/favoritesRoute.js');
 const omdbRouter = require('./routes/omdbRoute.js');
-const ytbRouter = require('./routes/ytbRoute.js');
 
 const port = process.env.PORT || 9000;
 
@@ -31,6 +30,5 @@ app.use('/login', loginRouter);
 app.use('/signup', signUpRouter);
 app.use('/favorites', favoritesRouter);
 app.use('/omdb', omdbRouter);
-app.use('/ytb', ytbRouter);
 
 app.listen(port, () => { console.log(`Listen to port ${port}`) });

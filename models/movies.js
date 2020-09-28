@@ -61,13 +61,13 @@ Movie.getMovieInfo = (req, res) => {
     });
 }
 
-Movie.getMovieIdByTitle = (req, res) => {
+Movie.getMovieIdByTitle = (title, cb) => {
     const sql = 'SELECT movieId FROM Movies WHERE title= ?';
-    connection.query(sql, [req.body.search], (err, result) => {
+    connection.query(sql, [title], (err, result) => {
         if (err) {
             console.log("error: ", err);
         }
-        res.send(result);
+        cb(result);
     });
 }
 
