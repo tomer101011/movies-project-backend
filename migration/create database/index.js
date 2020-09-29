@@ -17,7 +17,8 @@ connection.connect(error => {
 
 const createDatabase = () => {
 
-    connection.query("CREATE DATABASE movieMojoDB", (error, result) => {
+    const createDB = `CREATE DATABASE ${process.env.DATABASE}`;
+    connection.query(createDB, (error, result) => {
         if (error) throw error;
 
         else console.log("Database created");

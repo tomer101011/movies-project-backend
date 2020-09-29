@@ -4,7 +4,6 @@ const request = require("supertest");//supertest is a framework that allows to e
 const postersRouter = require('../routes/postersRoute.js');//import the route we are testing
 const connection = require("../models/db.js");
 
-
 const app = express();
 
 app.use('/posters', postersRouter);
@@ -20,7 +19,7 @@ describe("testing-poster-route", () => {
         expect(status).toEqual(200);
     });
 
-    it("GET /posters- all posters really sent", async () => {
+    it("GET /posters- all posters sent", async () => {
         const { body } = await request(app).get("/posters");
         expect(body).not.toEqual([]);
     });

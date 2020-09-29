@@ -17,15 +17,61 @@ describe("testing-movies-route", () => {
         done();
     });
 
-    it("POST /movies/info- no catch error found", async () => {
-        const data = { movieId: 1 };
-        const { status } = await request(app).post("/movies/info").send(data);
+    // /movies/recent/:count
+    it("POST /movies/recent/:count- no catch error found", async () => {
+        const maxRows = 10;
+        const { status } = await request(app).post(`/movies/recent/${maxRows}`).send();
         expect(status).toEqual(200);
     });
 
-    it("POST /movies/info- movieId really found on the database", async () => {
+    it("POST /movies/recent/:count- get recent movies, maximux count rows", async () => {
+        const maxRows = 10;
+        const { body } = await request(app).post(`/movies/recent/${maxRows}`).send();
+        expect(body.length).toBeLessThanOrEqual(maxRows);
+    });
+    ////////////////////////////////////////
+
+    // /movies/favorites/:count
+    it("POST /movies/favorites/:count- no catch error found", async () => {
+        const data = { userId: 1 };
+        const maxRows = 4;
+        const { status } = await request(app).post(`/movies/favorites/${maxRows}`).send(data);
+        expect(status).toEqual(200);
+    });
+
+    it("POST /movies/favorites/:count- get favorite movies of user, maximux count rows", async () => {
+        const data = { userId: 1 };
+        const maxRows = 4;
+        const { body } = await request(app).post(`/movies/favorites/${maxRows}`).send(data);
+        expect(body.length).toBeLessThanOrEqual(maxRows);
+    });
+    ////////////////////////////////////////
+
+    // /topRated/:count
+    it("POST /topRated/:count- no catch error found", async () => {
+        const maxRows = 8;
+        const { status } = await request(app).post(`/movies/topRated/${maxRows}`).send();
+        expect(status).toEqual(200);
+    });
+
+    it("POST /topRated/:count- get top rated movies, maximux count rows", async () => {
+        const maxRows = 8;
+        const { body } = await request(app).post(`/movies/topRated/${maxRows}`).send();
+        expect(body.length).toBeLessThanOrEqual(maxRows);
+    });
+    ////////////////////////////////////////
+
+    // /movies/info
+    it("POST /movies/info- no catch error found", async () => {
         const data = { movieId: 1 };
-        const { body } = await request(app).post("/movies/info").send(data);
+        const { status } = await request(app).post('/movies/info').send(data);
+        expect(status).toEqual(200);
+    });
+
+    it("POST /movies/info- movie found on the database", async () => {
+        const data = { movieId: 1 };
+        const { body } = await request(app).post('/movies/info').send(data);
         expect(body).not.toEqual([]);
     });
+    ////////////////////////////////////////
 });

@@ -18,8 +18,6 @@ router.post("/", (req, res) => {
         }
         else res.send('user name taken');
     });
-
-
 });
 
 module.exports = router;
