@@ -1,6 +1,5 @@
 const connection = require("./db.js");
 const Favorite = require('./favorites.js');
-const Poster = require('./posters.js');
 
 // constructor
 const Movie = function (movie) {
@@ -21,9 +20,7 @@ Movie.addMovie = (movie, res) => {
     const sql = 'INSERT INTO Movies SET ?';
 
     connection.query(sql, movie, (err, result) => {
-        if (err) {
-            console.log("error: ", err);
-        }
+        if (err) throw err;
         res.send(result);
     });
 }
@@ -35,9 +32,7 @@ Movie.deleteMovie = (movieId, res) => {
     const sql = 'DELETE FROM Movies WHERE movieId= ?';
 
     connection.query(sql, [movieId], (err, result) => {
-        if (err) {
-            console.log("error: ", err);
-        }
+        if (err) throw err;
         res.send('movie deleted!');
     });
 }
@@ -46,10 +41,7 @@ Movie.getRecentMovies = (req, res) => {
     sqlConvertReleased = `(SELECT STR_TO_DATE(released,'%d %M %Y'))`
     const sql = `SELECT movieId, title, poster FROM Movies ORDER BY ${sqlConvertReleased} DESC LIMIT ${req.params.count}`;
     connection.query(sql, (err, result) => {
-        if (err) {
-            console.log("error: ", err);
-            return;
-        }
+        if (err) throw err;
         res.send(result);
     });
 }
@@ -69,9 +61,7 @@ Movie.getFavoriteMovies = (req, res) => {
                 `ORDER BY FIELD(movieId, ${stringFavIds}) LIMIT ${countMovies}`
 
             connection.query(sqlMovies, (err, result) => {
-                if (err) {
-                    console.log("error: ", err);
-                }
+                if (err) throw err;
                 res.send(result);
             });
         }
@@ -81,10 +71,7 @@ Movie.getFavoriteMovies = (req, res) => {
 Movie.getTopRatedMovies = (req, res) => {
     const sql = `SELECT movieId, title, poster FROM Movies ORDER BY rating DESC LIMIT ${req.params.count}`;
     connection.query(sql, (err, result) => {
-        if (err) {
-            console.log("error: ", err);
-            return;
-        }
+        if (err) throw err;
         res.send(result);
     });
 }
@@ -92,9 +79,7 @@ Movie.getTopRatedMovies = (req, res) => {
 Movie.getMovieInfo = (req, res) => {
     const sql = 'SELECT * FROM Movies WHERE movieId= ?';
     connection.query(sql, [req.body.movieId], (err, result) => {
-        if (err) {
-            console.log("error: ", err);
-        }
+        if (err) throw err;
         res.send(result);
     });
 }
@@ -102,9 +87,7 @@ Movie.getMovieInfo = (req, res) => {
 Movie.getMovieIdByTitle = (title, cb) => {
     const sql = 'SELECT movieId FROM Movies WHERE title= ?';
     connection.query(sql, [title], (err, result) => {
-        if (err) {
-            console.log("error: ", err);
-        }
+        if (err) throw err;
         cb(result);
     });
 }

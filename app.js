@@ -18,8 +18,8 @@ const app = express();
 
 //allow cross platform connection for frontend and backend
 app.use(cors());
+//allow post request to get the data through req.body
 app.use(express.json());
-
 app.use(express.urlencoded({ extended: false }));
 
 //all backend routes

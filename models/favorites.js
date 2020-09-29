@@ -11,9 +11,7 @@ Favorite.addFavorite = (favorite, res) => {
     const sql = 'INSERT INTO Favorites SET ?';
 
     connection.query(sql, favorite, (err, result) => {
-        if (err) {
-            console.log("error: ", err);
-        }
+        if (err) throw err;
         res.send('favorite added!');
     });
 }
@@ -21,9 +19,7 @@ Favorite.deleteFavoritesOfMovie = (movieId) => {
     const sql = 'DELETE FROM Favorites WHERE movieId= ?';
 
     connection.query(sql, [movieId], (err, result) => {
-        if (err) {
-            console.log("error: ", err);
-        }
+        if (err) throw err;
     });
 }
 
@@ -33,9 +29,7 @@ Favorite.deleteFavorite = (favorite, res) => {
     const sql = 'DELETE FROM Favorites WHERE userId= ? AND movieId= ?';
 
     connection.query(sql, [favorite.userId, favorite.movieId], (err, result) => {
-        if (err) {
-            console.log("error: ", err);
-        }
+        if (err) throw err;
         res.send('favorite deleted!');
     });
 }
@@ -43,9 +37,7 @@ Favorite.deleteFavorite = (favorite, res) => {
 Favorite.getFavoritesIds = (userId, cb) => {
     const sqlFav = 'SELECT movieId FROM Favorites WHERE userId= ? ORDER BY indexFav DESC';
     connection.query(sqlFav, [userId], (err, result) => {
-        if (err) {
-            console.log("error: ", err);
-        }
+        if (err) throw err;
         cb(result);
     });
 }
@@ -55,9 +47,7 @@ Favorite.searchUserFavMovie = (favorite, res) => {
     const sql = `SELECT movieId FROM Favorites WHERE userId= ? AND movieId= ?`;
 
     connection.query(sql, [favorite.userId, favorite.movieId], (err, result) => {
-        if (err) {
-            console.log("error: ", err);
-        }
+        if (err) throw err;
         res.send(result);
     });
 }

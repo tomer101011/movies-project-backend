@@ -10,10 +10,8 @@ const User = function (user) {
 User.validateUser = (userName, password, cb) => {
     const sql = 'SELECT userId FROM Users WHERE userName= ? AND password= ?';
     connection.query(sql, [userName, password], (err, result) => {
-        if (err) {
-            console.log("error: ", err);
-        }
 
+        if (err) throw err;
         cb(result);
     });
 }
@@ -21,9 +19,8 @@ User.validateUser = (userName, password, cb) => {
 User.insertUser = (user, cb) => {
     const sql = 'INSERT INTO Users SET ?'
     connection.query(sql, user, (err, result) => {
-        if (err) {
-            console.log("error: ", err);
-        }
+
+        if (err) throw err;
         cb(result.insertId);
     });
 }
@@ -31,10 +28,8 @@ User.insertUser = (user, cb) => {
 User.searchUserById = (userId, cb) => {
     const sql = 'SELECT userName, isManager FROM Users where userId= ? '
     connection.query(sql, [userId], (err, result) => {
-        if (err) {
-            console.log("error: ", err);
-        }
 
+        if (err) throw err;
         cb(result);
     });
 }
@@ -42,10 +37,8 @@ User.searchUserById = (userId, cb) => {
 User.searchUserName = (userName, cb) => {
     const sql = 'SELECT userId FROM Users WHERE userName= ? '
     connection.query(sql, [userName], (err, result) => {
-        if (err) {
-            console.log("error: ", err);
-        }
 
+        if (err) throw err;
         cb(result);
     });
 }
