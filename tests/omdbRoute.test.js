@@ -26,7 +26,7 @@ describe("testing-omdb-route", () => {
         expect(status).toEqual(200);
     });
 
-    it("POST /omdb- no catch error found", async () => {
+    it("POST /omdb- get the movieId of the specified movie if it exists on the database", async () => {
         const searchMovie = {
             search: 'the rise of skywalker'
         }
