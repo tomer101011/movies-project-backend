@@ -73,5 +73,12 @@ describe("testing-movies-route", () => {
         const { body } = await request(app).post('/movies/info').send(data);
         expect(body).not.toEqual([]);
     });
+
+    it("POST /movies/info- movie found on the database", async () => {
+        const data = { movieId: -20 };
+        const { body } = await request(app).post('/movies/info').send(data);
+        console.log(body)
+        expect(body).toEqual([]);
+    });
     ////////////////////////////////////////
 });

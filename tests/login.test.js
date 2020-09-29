@@ -35,15 +35,32 @@ describe("testing-login-route", () => {
         const { text } = await request(app).post('/login').send(user);
         expect(text).toEqual('user not found');
     });
+
+    it("POST /login- check if the user specified exists on the database", async () => {
+        const user = {
+            userName: 'tomer',
+            password: '1234'
+        }
+        const { body } = await request(app).post('/login').send(user);
+        expect(body.userId).toEqual(2);
+    });
     ////////////////////////////////////////
 
-     // /login/user
-     it("POST /login/user- no catch error found", async () => {
+    // /login/user
+    it("POST /login/user- no catch error found", async () => {
         const user = {
             userId: '2'
         }
         const { status } = await request(app).post('/login/user').send(user);
         expect(status).toEqual(200);
+    });
+
+    it("POST /login/user- get the user name based on the userId specified", async () => {
+        const user = {
+            userId: '-20'
+        }
+        const { body } = await request(app).post('/login/user').send(user);
+        expect(body).toEqual({});
     });
 
     it("POST /login/user- get the user name based on the userId specified", async () => {

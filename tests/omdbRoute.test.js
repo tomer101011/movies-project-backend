@@ -22,16 +22,17 @@ describe("testing-omdb-route", () => {
         const searchMovie = {
             search: 'rise of skywalker'
         }
-        const { status } = await request(app).post('/omdb').send(searchMovie);
-        expect(status).toEqual(200);
+        const result = await request(app).post('/omdb').send(searchMovie);
+        expect(result.status).toEqual(200);
+        expect(result.body.movieId.length).not.toEqual(0);
     });
 
     it("POST /omdb- get the movieId of the specified movie if it exists on the database", async () => {
         const searchMovie = {
-            search: 'the rise of skywalker'
+            search: 'Ben Hur'
         }
         const { body } = await request(app).post('/omdb').send(searchMovie);
-        expect(body.movieId.length).not.toEqual(0);
+        expect(body.movieId.length).toEqual(0);
     });
-    ////////////////////////////////////////
+    //////////////////////////////////////
 });
