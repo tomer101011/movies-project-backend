@@ -38,8 +38,15 @@ Movie.deleteMovie = (movieId, res) => {
 }
 
 Movie.getRecentMovies = (req, res) => {
-    sqlConvertReleased = `(SELECT STR_TO_DATE(released,'%d %M %Y'))`
-    const sql = `SELECT movieId, title, poster FROM Movies ORDER BY ${sqlConvertReleased} DESC LIMIT ${req.params.count}`;
+    sqlConvertReleased = `(SELECT STR_TO_DATE(released,'%d %M %Y'))`;
+    let sql = '';
+
+    if (req.params.count == -1)
+        sql = `SELECT movieId, title, poster FROM Movies ORDER BY ${sqlConvertReleased} DESC`;
+
+    else
+        sql = `SELECT movieId, title, poster FROM Movies ORDER BY ${sqlConvertReleased} DESC LIMIT ${req.params.count}`;
+
     connection.query(sql, (err, result) => {
         if (err) throw err;
         res.send(result);
