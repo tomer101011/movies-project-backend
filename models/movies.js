@@ -41,9 +41,8 @@ Movie.getRecentMovies = (req, res) => {
     sqlConvertReleased = `(SELECT STR_TO_DATE(released,'%d %M %Y'))`;
     let sql = '';
 
-    if (req.params.count == -1)
+    if (req.params.count == 'all')
         sql = `SELECT movieId, title, poster FROM Movies ORDER BY ${sqlConvertReleased} DESC`;
-
     else
         sql = `SELECT movieId, title, poster FROM Movies ORDER BY ${sqlConvertReleased} DESC LIMIT ${req.params.count}`;
 
@@ -63,9 +62,15 @@ Movie.getFavoriteMovies = (req, res) => {
         movieFavIds.map(item => stringFavIds += item.movieId + ',');
         stringFavIds = stringFavIds.substr(0, stringFavIds.length - 1);
 
+        let sqlMovies = '';
         if (stringFavIds != '') {
-            const sqlMovies = `SELECT movieId, title, poster FROM Movies WHERE movieId IN(${stringFavIds}) ` +
-                `ORDER BY FIELD(movieId, ${stringFavIds}) LIMIT ${countMovies}`
+            
+            if (req.params.count == 'all')
+                sqlMovies = `SELECT movieId, title, poster FROM Movies WHERE movieId IN(${stringFavIds}) ` +
+                    `ORDER BY FIELD(movieId, ${stringFavIds})`;
+            else
+                sqlMovies = `SELECT movieId, title, poster FROM Movies WHERE movieId IN(${stringFavIds}) ` +
+                    `ORDER BY FIELD(movieId, ${stringFavIds}) LIMIT ${countMovies}`;
 
             connection.query(sqlMovies, (err, result) => {
                 if (err) throw err;
@@ -76,7 +81,12 @@ Movie.getFavoriteMovies = (req, res) => {
 }
 
 Movie.getTopRatedMovies = (req, res) => {
-    const sql = `SELECT movieId, title, poster FROM Movies ORDER BY rating DESC LIMIT ${req.params.count}`;
+    let sql = '';
+    if (req.params.count == 'all')
+        sql = 'SELECT movieId, title, poster FROM Movies ORDER BY rating DESC';
+    else
+        sql = `SELECT movieId, title, poster FROM Movies ORDER BY rating DESC LIMIT ${req.params.count}`;
+
     connection.query(sql, (err, result) => {
         if (err) throw err;
         res.send(result);

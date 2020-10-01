@@ -20,18 +20,23 @@ router.post("/info", (req, res) => {
 });
 
 router.post("/insert", (req, res) => {
+    const placeholder = 'https://www.genius100visions.com/wp-content/uploads/2017/09/placeholder-vertical.jpg';
+
+    const posterMovie = req.body.movieInfo.poster == 'N/A' ? placeholder : req.body.movieInfo.poster;
+    const releasedMovie = req.body.movieInfo.released == 'N/A' ? '01 Jan 0000' : req.body.movieInfo.released;
+    const ratingMovie = req.body.movieInfo.rating == 'N/A' ? 0 : req.body.movieInfo.released;
 
     const movie = new Movie({
         title: req.body.movieInfo.title,
-        released: req.body.movieInfo.released,
+        released: releasedMovie,
         runtime: req.body.movieInfo.runtime,
         genre: req.body.movieInfo.genre,
         director: req.body.movieInfo.director,
         actors: req.body.movieInfo.actors,
         plot: req.body.movieInfo.plot,
-        poster: req.body.movieInfo.poster,
+        poster: posterMovie,
         trailer: req.body.trailer,
-        rating: req.body.movieInfo.rating
+        rating: ratingMovie
     });
     Movie.addMovie(movie, res);
 });
