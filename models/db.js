@@ -10,6 +10,7 @@ const connection = mysql.createConnection({
   database: process.env.DATABASE
 });
 
+
 // open the MySQL connection
 connection.connect(error => {
   if (error) throw error;
