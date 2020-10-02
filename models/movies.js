@@ -64,7 +64,7 @@ Movie.getFavoriteMovies = (req, res) => {
 
         let sqlMovies = '';
         if (stringFavIds != '') {
-            
+
             if (req.params.count == 'all')
                 sqlMovies = `SELECT movieId, title, poster FROM Movies WHERE movieId IN(${stringFavIds}) ` +
                     `ORDER BY FIELD(movieId, ${stringFavIds})`;
@@ -77,6 +77,8 @@ Movie.getFavoriteMovies = (req, res) => {
                 res.send(result);
             });
         }
+        else
+            res.send([]);
     });
 }
 

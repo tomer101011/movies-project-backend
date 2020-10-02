@@ -24,7 +24,7 @@ router.post("/insert", (req, res) => {
 
     const posterMovie = req.body.movieInfo.poster == 'N/A' ? placeholder : req.body.movieInfo.poster;
     const releasedMovie = req.body.movieInfo.released == 'N/A' ? '01 Jan 0000' : req.body.movieInfo.released;
-    const ratingMovie = req.body.movieInfo.rating == 'N/A' ? 0 : req.body.movieInfo.released;
+    const ratingMovie = req.body.movieInfo.rating == 'N/A' ? 0 : req.body.movieInfo.rating;
 
     const movie = new Movie({
         title: req.body.movieInfo.title,
