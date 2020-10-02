@@ -76,7 +76,7 @@ Movie.getFavoriteMovies = (req, res) => {
                 if (err) throw err;
                 res.send(result);
             });
-        }
+        } 
         else
             res.send([]);
     });
