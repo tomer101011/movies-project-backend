@@ -12,8 +12,7 @@ const signUpRouter = require('./routes/signUp.js');
 const favoritesRouter = require('./routes/favoritesRoute.js');
 const omdbRouter = require('./routes/omdbRoute.js');
 
-// const port = process.env.PORT || 9000;
-const port=9000;
+const port = process.env.PORT || 9000;
 
 const app = express();
 
