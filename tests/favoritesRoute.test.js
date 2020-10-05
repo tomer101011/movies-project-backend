@@ -45,4 +45,15 @@ describe("testing-favorites-route", () => {
         expect(body.length).toEqual(0);
     });
     ////////////////////////////////////////
+
+    // /favorites/insert
+    it("POST /favorites/insert- data inserted successfully- no catch error found", async () => {
+        const favorite = {
+            userId: 1,
+            movieId: 25
+        };
+        const { status } = await request(app).post('/favorites/insert').send(favorite);
+        expect(status).toEqual(200);
+    });
+    ////////////////////////////////////////
 });

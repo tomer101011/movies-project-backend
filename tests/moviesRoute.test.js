@@ -80,4 +80,25 @@ describe("testing-movies-route", () => {
         expect(body).toEqual([]);
     });
     ////////////////////////////////////////
+
+    // /movies/insert
+    it("POST /movies/insert- data inserted successfully- no catch error found", async () => {
+        const movie = {
+            movieInfo: {
+                title: "The Incredible Hulk",
+                released: "13 Jun 2008",
+                runtime: "112 min",
+                genre: "Action, Adventure, Sci-Fi",
+                director: "Louis Leterrier",
+                actors: "Edward Norton, Liv Tyler, Tim Roth, William Hurt",
+                plot: "Bruce Banner, a scientist on the run from the U.S. Government, must find a cure for the monster he turns into whenever he loses his temper.",
+                poster: "https://m.media-amazon.com/images/M/MV5BMTUyNzk3MjA1OF5BMl5BanBnXkFtZTcwMTE1Njg2MQ@@._V1_SX300.jpg",
+                rating: "61"
+            },
+            trailer: "https://www.youtube.com/embed/xbqNb2PFKKA"
+        };
+        const { status } = await request(app).post('/movies/insert').send(movie);
+        expect(status).toEqual(200);
+    });
+    ////////////////////////////////////////
 });
