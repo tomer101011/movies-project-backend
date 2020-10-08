@@ -1,7 +1,9 @@
 const express = require("express");
-const request = require("supertest");//supertest is a framework that allows to easily test web apis
+//supertest is a framework that allows to easily test web APIs
+const request = require("supertest");
 
-const omdbRouter = require('../routes/omdbRoute.js');//import the route we are testing
+//import the route we are testing
+const omdbRouter = require('../routes/omdbRoute.js');
 const connection = require("../models/db.js");
 
 const app = express();
@@ -12,6 +14,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use('/omdb', omdbRouter);
 
 describe("testing-omdb-route", () => {
+    //after all the tests close the connection to the database
     afterAll((done) => {
         connection.destroy();
         done();
@@ -32,6 +35,7 @@ describe("testing-omdb-route", () => {
             search: 'Ben Hur'
         }
         const { body } = await request(app).post('/omdb').send(searchMovie);
+        //expect the movie name to not be found on the table
         expect(body.movieId.length).toEqual(0);
     });
     //////////////////////////////////////

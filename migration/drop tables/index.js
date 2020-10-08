@@ -1,5 +1,6 @@
 const connection = require("../../models/db.js");
 
+//drop all the tables listed in here
 const dropTables = () => {
     const dropPosters = "DROP TABLE Posters";
     const dropFavorites = "DROP TABLE Favorites";

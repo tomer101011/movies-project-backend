@@ -1,7 +1,9 @@
 const express = require("express");
-const request = require("supertest");//supertest is a framework that allows to easily test web apis
+//supertest is a framework that allows to easily test web APIs
+const request = require("supertest");
 
-const favoritesRouter = require('../routes/favoritesRoute.js');//import the route we are testing
+//import the route we are testing
+const favoritesRouter = require('../routes/favoritesRoute.js');
 const connection = require("../models/db.js");
 
 const app = express();
@@ -12,6 +14,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use('/favorites', favoritesRouter);
 
 describe("testing-favorites-route", () => {
+    //after all the tests close the connection to the database
     afterAll((done) => {
         connection.destroy();
         done();
@@ -33,6 +36,7 @@ describe("testing-favorites-route", () => {
             movieId: 1,
         };
         const { body } = await request(app).post('/favorites/usermovie').send(favorite);
+        //expect movieId to be returned and not empty array
         expect(body[0].movieId).toEqual(favorite.movieId);
     });
 
@@ -42,6 +46,7 @@ describe("testing-favorites-route", () => {
             movieId: -20,
         };
         const { body } = await request(app).post('/favorites/usermovie').send(favorite);
+        //expect to recieve an empty array because there is no movieId= -20 on the table
         expect(body.length).toEqual(0);
     });
     ////////////////////////////////////////
@@ -49,8 +54,8 @@ describe("testing-favorites-route", () => {
     // /favorites/insert
     it("POST /favorites/insert- data inserted successfully- no catch error found", async () => {
         const favorite = {
-            userId: 1,
-            movieId: 25
+            userId: 3,
+            movieId: 16
         };
         const { status } = await request(app).post('/favorites/insert').send(favorite);
         expect(status).toEqual(200);

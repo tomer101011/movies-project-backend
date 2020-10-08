@@ -1,7 +1,9 @@
 const express = require("express");
-const request = require("supertest");//supertest is a framework that allows to easily test web apis
+//supertest is a framework that allows to easily test web APIs
+const request = require("supertest");
 
-const moviesRouter = require('../routes/moviesRoute.js');//import the route we are testing
+//import the route we are testing
+const moviesRouter = require('../routes/moviesRoute.js');
 const connection = require("../models/db.js");
 
 const app = express();
@@ -12,6 +14,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use('/movies', moviesRouter);
 
 describe("testing-movies-route", () => {
+    //after all the tests close the connection to the database
     afterAll((done) => {
         connection.destroy();
         done();
@@ -27,6 +30,7 @@ describe("testing-movies-route", () => {
     it("POST /movies/recent/:count- get recent movies, maximux count rows", async () => {
         const maxRows = 10;
         const { body } = await request(app).post(`/movies/recent/${maxRows}`).send();
+        //expect the maxRows returned to be maxRows specified
         expect(body.length).toBeLessThanOrEqual(maxRows);
     });
     ////////////////////////////////////////
@@ -43,6 +47,7 @@ describe("testing-movies-route", () => {
         const data = { userId: 1 };
         const maxRows = 4;
         const { body } = await request(app).post(`/movies/favorites/${maxRows}`).send(data);
+        //expect the maxRows returned to be maxRows specified
         expect(body.length).toBeLessThanOrEqual(maxRows);
     });
     ////////////////////////////////////////
@@ -51,12 +56,14 @@ describe("testing-movies-route", () => {
     it("POST /topRated/:count- no catch error found", async () => {
         const maxRows = 8;
         const { status } = await request(app).post(`/movies/topRated/${maxRows}`).send();
+        //expect the maxRows returned to be maxRows specified
         expect(status).toEqual(200);
     });
 
     it("POST /topRated/:count- get top rated movies, maximux count rows", async () => {
         const maxRows = 8;
         const { body } = await request(app).post(`/movies/topRated/${maxRows}`).send();
+        //expect the maxRows returned to be maxRows specified
         expect(body.length).toBeLessThanOrEqual(maxRows);
     });
     ////////////////////////////////////////
@@ -71,12 +78,14 @@ describe("testing-movies-route", () => {
     it("POST /movies/info- movie found on the database", async () => {
         const data = { movieId: 1 };
         const { body } = await request(app).post('/movies/info').send(data);
+        //expect the movie to be found on the table
         expect(body).not.toEqual([]);
     });
 
     it("POST /movies/info- movie found on the database", async () => {
         const data = { movieId: -20 };
         const { body } = await request(app).post('/movies/info').send(data);
+        //expect the movie to not be found on the table. No movie with the specified movieId
         expect(body).toEqual([]);
     });
     ////////////////////////////////////////

@@ -1,8 +1,9 @@
 const connection = require("./db.js");
 
-// constructor
+//Poster model constructor
 const Poster = {};
 
+//return all the posters from the table
 Poster.getAllPosters = (res) => {
     const sql = 'SELECT * FROM Posters';
     connection.query(sql, (err, result) => {

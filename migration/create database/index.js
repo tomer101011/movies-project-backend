@@ -2,6 +2,8 @@ const mysql = require('mysql');
 const dotenv = require('dotenv');
 dotenv.config({ path: __dirname + '/./../../.env' });
 
+//open connection based on the .env file
+//different between development and production
 const connection = mysql.createConnection({
     host: process.env.HOST,
     user: process.env.USER,
@@ -15,6 +17,7 @@ connection.connect(error => {
     createDatabase();
 });
 
+//create the database
 const createDatabase = () => {
 
     const createDB = `CREATE DATABASE ${process.env.DATABASE}`;

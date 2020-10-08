@@ -1,7 +1,9 @@
 const express = require("express");
-const request = require("supertest");//supertest is a framework that allows to easily test web apis
+//supertest is a framework that allows to easily test web APIs
+const request = require("supertest");
 
-const signUpRouter = require('../routes/signUp.js');//import the route we are testing
+//import the route we are testing
+const signUpRouter = require('../routes/signUp.js');
 const connection = require("../models/db.js");
 
 const app = express();
@@ -12,6 +14,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use('/signup', signUpRouter);
 
 describe("testing-signUp-route", () => {
+    //after all the tests close the connection to the database
     afterAll((done) => {
         connection.destroy();
         done();
@@ -33,6 +36,7 @@ describe("testing-signUp-route", () => {
             newPassword: '4444'
         }
         const { text } = await request(app).post('/signup').send(newUser);
+        //expect the user to be found on the table
         expect(text).toEqual('user name taken');
     });
     ////////////////////////////////////////
