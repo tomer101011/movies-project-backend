@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require("cors");
 const dotenv = require('dotenv');
-dotenv.config();
+dotenv.config();// allow use of the .env environment variables file
 
 //all backend routes
 const indexRouter = require('./routes/index.js');
@@ -12,6 +12,7 @@ const signUpRouter = require('./routes/signUp.js');
 const favoritesRouter = require('./routes/favoritesRoute.js');
 const omdbRouter = require('./routes/omdbRoute.js');
 
+//port will be process.env.PORT on Heroku or 9000 locally
 const port = process.env.PORT || 9000;
 
 const app = express();
