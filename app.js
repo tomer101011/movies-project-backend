@@ -1,7 +1,8 @@
 const express = require('express');
 const cors = require("cors");
 const dotenv = require('dotenv');
-dotenv.config();// allow use of the .env environment variables file
+//allow use of the .env environment variables file
+dotenv.config();
 
 //all backend routes
 const indexRouter = require('./routes/index.js');
