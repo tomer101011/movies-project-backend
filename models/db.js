@@ -1,4 +1,5 @@
 const mysql = require("mysql");
+//to use the .env file
 const dotenv = require('dotenv');
 dotenv.config({ path: __dirname + '/./../.env' });
 
