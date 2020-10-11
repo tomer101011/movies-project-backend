@@ -27,6 +27,7 @@ router.post("/", (req, res) => {
 router.post("/user", (req, res) => {
 
     const userId = req.body.userId;
+    
     //search the user and if found return the userName and isManager
     User.searchUserById(userId, result => {
         if (result.length == 0)
@@ -40,8 +41,6 @@ router.post("/user", (req, res) => {
             res.send(data);
         }
     })
-
-
 });
 
 module.exports = router;
