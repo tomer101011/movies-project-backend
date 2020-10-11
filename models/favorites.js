@@ -40,7 +40,9 @@ Favorite.deleteFavorite = (favorite, res) => {
 //return all the favorite movies of the specified user order by the last one added
 //cb is a callback function
 Favorite.getFavoritesIds = (userId, cb) => {
+
     const sqlFav = 'SELECT movieId FROM Favorites WHERE userId= ? ORDER BY indexFav DESC';
+    
     connection.query(sqlFav, [userId], (err, result) => {
         if (err) throw err;
         cb(result);
