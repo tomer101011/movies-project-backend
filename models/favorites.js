@@ -23,7 +23,6 @@ Favorite.deleteFavoritesOfMovie = (movieId) => {
 
     connection.query(sql, [movieId], (err, result) => {
         if (err) throw err;
-        res.send('favorite movie deleted from all users');
     });
 }
 
